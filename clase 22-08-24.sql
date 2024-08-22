@@ -1,0 +1,12 @@
+use central;
+select * from central.modelo;
+select mo.nombre, ma.nombre from modelo as mo inner join marca as ma on mo.idmarca=ma.idmarca;
+select mo.nombre as Modelo, ma.nombre as Marca from modelo as mo inner join marca as ma on mo.idmarca=ma.idmarca;
+select mo.nombre, ma.nombre from modelo as mo inner join marca as ma on mo.idmarca=ma.idmarca order by ma.nombre;
+select mo.nombre, ma.nombre from modelo as mo inner join marca as ma on mo.idmarca=ma.idmarca where ma.nombre="xiaomi" order by ma.nombre;
+select * from central.celular;
+select celular.*, sistemaoperativo.* from celular inner join sistemaoperativo on celular.idsistemaop=sistemaoperativo.idsistemaop;
+select c.idcelular, c.idmodelo, c.idcompania, c.memoria, c.precio, so.nombre from celular as c inner join sistemaoperativo as so on c.idsistemaop=so.idsistemaop;
+select * from celular;
+select ma.nombre, mo.nombre, so.nombre, co.nombre, c.memoria, c.precio from celular as c inner join modelo as mo on c.idmodelo=mo.idmodelo inner join marca as ma on mo.idmarca=ma.idmarca inner join sistemaoperativo as so on c.idsistemaop=so.idsistemaop inner join compania as co on c.idcompania=co.idcompania;
+select ma.nombre as marca, mo.nombre as modelo, so.nombre as sistemaoperativo, co.nombre as compania, c.memoria, c.precio, c.precio*1.20 as precioventa from celular as c inner join modelo as mo on c.idmodelo=mo.idmodelo inner join marca as ma on mo.idmarca=ma.idmarca inner join sistemaoperativo as so on c.idsistemaop=so.idsistemaop inner join compania as co on c.idcompania=co.idcompania;
